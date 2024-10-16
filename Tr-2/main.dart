@@ -27,7 +27,7 @@ void main() {
     print("Division by zero is not allowed.");
   }
 
-  // Another set of numbers
+  // Another set of numbers (Student Activity)
   print("\n=== Let's try again with new numbers ===");
 
   // Second set of hardcoded numbers
@@ -53,6 +53,21 @@ void main() {
   } else {
     print("Division by zero is not allowed.");
   }
+
+  //Bonus Challenge:
+
+  // New set of numbers
+  double num3 = 8.0;
+  double num4 = 3.0;
+
+  // Perform addition (Complete this line)
+  double newAddition = num3 + num4; 
+  print("The sum of $num3 and $num4 is: $newAddition");
+
+  // Perform multiplication (Complete this line)
+  double newMultiplication = num3 * num4; 
+  print("The product of $num3 and $num4 is: $newMultiplication");
+  
 
   // Buffer section: Extra practice for students if they finish early
   print("\n=== Bonus: Extra Practice ===");
