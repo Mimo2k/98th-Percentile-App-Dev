@@ -24,13 +24,17 @@ void main() {
     print('Value $searchValue not found in the list');
   }
 
-  // 6. Intermediate: Sum of all elements in the list
+  // 6. Sum of all elements in the list
   int totalSum = sumList(numbers);
   print('Sum of all elements: $totalSum');
 
-  // 7. Intermediate: Finding the maximum value in the list
+  // 7. Finding the maximum value in the list
   int maxValue = findMax(numbers);
   print('Maximum value in the list: $maxValue');
+
+  // 8. Student Activity: Calculating the average of list elements
+  double average = totalSum / numbers.length;
+  print('Average of the elements: $average');
 }
 
 // Function for linear search
