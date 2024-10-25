@@ -27,6 +27,7 @@ class CounterPage extends StatefulWidget {
 class _CounterPageState extends State<CounterPage> {
   int _counter = 0;
 
+  // Normal increment and decrement functions
   void _incrementCounter() {
     setState(() {
       _counter++;
@@ -38,6 +39,22 @@ class _CounterPageState extends State<CounterPage> {
       _counter--;
     });
   }
+
+  // Uncomment the code below to implement the Opposite Button Challenge
+  /*
+  // Opposite button functionality
+  void _incrementOpposite() {
+    setState(() {
+      _counter--;
+    });
+  }
+
+  void _decrementOpposite() {
+    setState(() {
+      _counter++;
+    });
+  }
+  */
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +77,7 @@ class _CounterPageState extends State<CounterPage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Normal buttons
                 ElevatedButton(
                   onPressed: _incrementCounter,
                   child: const Text('Increment'),
@@ -69,6 +87,19 @@ class _CounterPageState extends State<CounterPage> {
                   onPressed: _decrementCounter,
                   child: const Text('Decrement'),
                 ),
+
+                // Uncomment the buttons below for the Opposite Button Challenge
+                /*
+                ElevatedButton(
+                  onPressed: _incrementOpposite,
+                  child: const Text('Increment (Opposite)'),
+                ),
+                const SizedBox(width: 20),
+                TextButton(
+                  onPressed: _decrementOpposite,
+                  child: const Text('Decrement (Opposite)'),
+                ),
+                */
               ],
             ),
           ],
