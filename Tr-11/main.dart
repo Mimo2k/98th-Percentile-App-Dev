@@ -8,8 +8,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'To-Do App',
-      theme: ThemeData.dark(), // Applying dark theme
+      title: 'Todo App Part 2',
+      theme: ThemeData.dark(),
       home: const TodoApp(),
     );
   }
@@ -25,7 +25,7 @@ class TodoApp extends StatefulWidget {
 class _TodoAppState extends State<TodoApp> {
   final List<Map<String, dynamic>> _todoList = [];
   final TextEditingController _controller = TextEditingController();
-  String _priority = 'Normal'; // Default priority
+  String _priority = 'Normal';  // Default priority
 
   void _addTodoItem(String task, String priority) {
     setState(() {
@@ -46,13 +46,20 @@ class _TodoAppState extends State<TodoApp> {
     });
   }
 
+  // Student Activity 1: Customize Priority Colors
   Color _getPriorityColor(String priority) {
     switch (priority) {
       case 'High':
+        // Uncomment the line below to customize color for High priority
+        // return Colors.yellowAccent.withOpacity(0.2);
         return Colors.redAccent.withOpacity(0.2);
       case 'Normal':
+        // Uncomment the line below to customize color for Normal priority
+        // return Colors.greenAccent.withOpacity(0.2);
         return Colors.blueAccent.withOpacity(0.2);
       case 'Low':
+        // Uncomment the line below to customize color for Low priority
+        // return Colors.blueAccent.withOpacity(0.2);
         return Colors.greenAccent.withOpacity(0.2);
       default:
         return Colors.blueAccent.withOpacity(0.2);
@@ -63,7 +70,8 @@ class _TodoAppState extends State<TodoApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('To-Do List'),
+        // Student Activity 2: Add Task Count Display
+        title: Text('To-Do List' /* + ' (${_todoList.length})'*/),
         centerTitle: true,
       ),
       body: Column(
@@ -116,16 +124,18 @@ class _TodoAppState extends State<TodoApp> {
                 final todoItem = _todoList[index];
                 return Card(
                   color: _getPriorityColor(todoItem['priority']),
-                  margin:
-                      const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                   child: ListTile(
+                    // Student Activity 3: Change Font Style of Completed Tasks
                     title: Text(
                       todoItem['task'],
                       style: TextStyle(
+                        fontSize: 18,
                         decoration: todoItem['completed']
                             ? TextDecoration.lineThrough
                             : TextDecoration.none,
-                        fontSize: 18,
+                        // Uncomment the line below to apply italic style to completed tasks
+                        // fontStyle: todoItem['completed'] ? FontStyle.italic : FontStyle.normal,
                       ),
                     ),
                     leading: IconButton(
@@ -133,8 +143,7 @@ class _TodoAppState extends State<TodoApp> {
                         todoItem['completed']
                             ? Icons.check_box
                             : Icons.check_box_outline_blank,
-                        color:
-                            todoItem['completed'] ? Colors.green : Colors.grey,
+                        color: todoItem['completed'] ? Colors.green : Colors.grey,
                       ),
                       onPressed: () {
                         _toggleComplete(index);
